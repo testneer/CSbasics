@@ -61,9 +61,9 @@ public class MyDrawApp extends JFrame implements ActionListener, MouseListener {
     	}
         else{
         	Point destination = new Point(x, y);
-        	ColoredLine2D line = new ColoredLine2D(originPoint, destination);
+//        	ColoredLine2D line = new ColoredLine2D(originPoint, destination);
         	originPoint = destination;
-	        lines.add(line);
+//	        lines.add(line);
 	        repaint();	
         }
     }

@@ -38,7 +38,7 @@ public class Tablet {
 			return;
 		}
 		for(int i=0;i<points.size()-1;i++){
-			System.out.println("Line);
+			System.out.println("Line");
 		}
 	}
 
