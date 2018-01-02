@@ -197,9 +197,6 @@ public class exXX_rehurse {
 					arr[left] = arr[right];
 					arr[right] = temp;
 				}
-//				arr[left] = arr[left]^arr[right]; 
-//				arr[right] = arr[left]^arr[right]; 
-//				arr[left] = arr[left]^arr[right];
 				left++;
 				right--;
 			}

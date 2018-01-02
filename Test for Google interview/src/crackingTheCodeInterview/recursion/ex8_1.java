@@ -5,10 +5,35 @@ public class ex8_1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(possilbeWaysToGoUpStairsMemo(36));
-System.out.println(possilbeWaysToGoUpStairs(36));
+		System.out.println(possilbeWaysToGoUpStairs(36));
+		System.out.println(countWays(36));
 	}
 	
 	
+	
+	static int countWays(int n){
+		 return countWatsMemo(n, new int[n+1]);
+	}
+	
+	private static int countWatsMemo(int n, int[] memo) {
+		if(n==1 || n==2){
+			return n;
+		}
+		if(n==3){
+			return 4;
+		}
+		
+		if(memo[n] != 0){
+			System.out.println("returned from memo where n = " + n);
+			return memo[n];
+		}
+		
+		memo[n] = countWatsMemo(n-1, memo) + countWatsMemo(n-2, memo) + countWatsMemo(n-3, memo); 
+		return memo[n];
+	}
+
+
+
 	/*
 	 * brute force
 	 */

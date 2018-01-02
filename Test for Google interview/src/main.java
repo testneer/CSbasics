@@ -10,8 +10,13 @@ public class main {
 	private static String[] arr2 = {"The", "quick", "brown", "fox", "jump", "over", "jumpover", "the", "lazy", "dog", "back"};
 	private static String str = "ThequickbrownfoxjumpoverthelazydogH";
 	
-	
 	public static void main(String[] args){
+		if(null==null){
+			System.out.println("oren");
+		}
+//		main2(args);
+	}
+	public static void main2(String[] args){
 		
 		
 //		System.out.println("biga: " + splitText("biga", arr1));

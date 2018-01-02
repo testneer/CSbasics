@@ -9,7 +9,9 @@ import java.util.Vector;
 public class ex1_1 {
 
 	public static void main(String[] args) {
-		String str = "abcda";
+		int a = 'A';
+		System.out.println("ire" + a);
+		String str = "abcd";
 		System.out.println(hasUniqueChars(str));
 		System.out.println(hasUniqueCharsNoDs(str));
 		System.out.println(hasUniqueCharsBitVector(str));
@@ -31,17 +33,14 @@ public class ex1_1 {
 	}
 	
 	
-	
 	private static boolean hasUniqueCharsNoDs(String str){
 		boolean[] arr = new boolean[256];
 		for(int i = 0; i< str.length(); i++){
 			char c = str.charAt(i);
-			if(arr[(int)c] == false){
-				arr[(int)c] = true ;
-			}
-			else{
+			if(arr[(int)c]){
 				return false;
 			}
+			arr[(int)c] = true ;
 		}
 		return true;
 	}

@@ -1,19 +1,92 @@
 package crackingTheCodeInterview.recursion;
 
-import java.util.Deque;
 import java.util.*;
-import java.util.Map;
 
 public class ex16_8 {
 
 	public static void main(String[] args) {
-		int[] a = {/*300, 0 , -1 , -24 , 15,*/ 17331, 1000000000, 100000, 101, 50000};
+		int[] a = {300, 0 , -1 , -24, 17331, 1000000005, 100000, 101, 50000};
 		
 		for(int i : a){
-			System.out.println(getIntAsString(i));
-			System.out.println("-"+getIntAsString2(i));
+			System.out.println("1 "+getIntAsString(i));
+			System.out.println("2 " +getIntAsString2(i));
+			System.out.println("3 "+ convertIntToString(i)+"\n");
+			
 		}
 		
+	}
+	
+	static String convertIntToString(int num){
+		Map<Integer, String> map = new HashMap<>();
+		initMap(map);
+		if(num == 0){
+			return "ZERO";
+		}
+		String[] prefixes = {"","THOUSAND","MILLION","BILLION"};
+		StringBuilder result = new StringBuilder();
+		if(num < 0){
+			result.append("MINUS ");
+			num*= -1;
+		}
+		Deque<String> stack = new LinkedList<>();
+		
+		for(int i = 0; i<4; i++){
+			if(num == 0){
+				break;
+			}
+			int chunk = num%1000;
+			if(chunk != 0){
+				String prefix = prefixes[i];
+				if(prefix != ""){
+					stack.push(prefix);
+				}
+				stack.push(getFirstThree(chunk, map));
+			}
+			num = num / 1000;
+		}
+		
+		while(!stack.isEmpty()){
+			result.append(stack.pop()).append(" ");
+		}
+		return result.toString();
+	}
+	
+	static String getFirstThree(int num, Map<Integer, String> map){
+		if(num == 0){
+			return "";
+		}
+		StringBuilder sb = new StringBuilder();
+		int tens = num%100;
+		int hundreds = num/100;
+		
+		if(hundreds > 0){
+			sb.append(map.get(hundreds)).append(" ").append(map.get(100));
+		}
+		
+		if(tens > 0){
+			if(hundreds > 0){
+				sb.append(" ");
+			}
+			sb.append(getFirstTwo(tens, map));
+		}
+		return sb.toString();
+	}
+	
+	static String getFirstTwo(int num, Map<Integer, String> map){
+		if(num < 21){
+			return map.get(num);
+		}
+		if(num == 0){
+			return "";
+		}
+		StringBuilder sb = new StringBuilder();
+		int ones = num%10;
+		int tens = num-ones;
+		sb.append(map.get(tens));
+		if(ones>0){
+			sb.append(" ").append(map.get(ones));
+		}
+		return sb.toString();
 	}
 	
 	public static String getIntAsString2(int a){

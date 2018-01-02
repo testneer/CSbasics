@@ -30,16 +30,16 @@ public class ex1_8 {
 		Set<Integer> zeroCol = new HashSet<>();
 		
 		for(int row = 0; row < matrix.length ;row++){
-			if(!zeroRows.contains(row)){
+//			if(!zeroRows.contains(row)){
 				for(int col = 0; col < matrix[0].length; col++){
-					if(!zeroCol.contains(col)){
+//					if(!zeroCol.contains(col)){
 						if(matrix[row][col] == 0){
 							zeroRows.add(row);
 							zeroCol.add(col);
 						}
-					}
+//					}
 				}
-			}
+//			}
 		}
 		for(Integer row : zeroRows){
 			for(int i = 0; i < matrix[0].length; i++){

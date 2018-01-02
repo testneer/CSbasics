@@ -26,12 +26,60 @@ public class TestShit {
 //			arr.add(3);
 			arr = new ArrayList<>();
 			arr.add(3);
-			arr.add(3);
+			arr.add(3);	
 			System.out.println("times");
 		}
 		System.out.println(arr.size());
+		System.out.println("-------------");
+		
+		int[][][] arr3d = new int[3][4][5];
+		
+		System.out.println("first dim length = " + arr3d.length);
+		System.out.println("second dim length = " + arr3d[0].length);
+		System.out.println("third dim length = " + arr3d[0][0].length);
+		
+		
+		boolean[] kakels = new boolean[5];
+		
+		System.out.println(Integer.MAX_VALUE);
+		String one = "one";
+		one+="two";
+		System.out.println(one);
+		
+		String[] pre = {"er"};
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("first").append("Second");
+		System.out.println(sb.toString());
+		System.out.println(-123%1000);
+		System.out.println(123%100);
+		System.out.println(123/100);
+		
+		"reoa".charAt(3);
+		System.out.println("---------");
+		testIterr();
 	}
 	
+	
+	private static void testIterr() {
+		ArrayList<Integer> arr = new ArrayList<>();
+		arr.add(1);
+		arr.add(2);
+		arr.add(3);
+		arr.add(4);
+		int l =arr.size();
+		for(int i = 0; i<l; i++){
+			if(i == 3){
+				arr.add(5);
+				arr.add(5);
+				arr.add(5);
+			}
+			System.out.println(arr.get(i));
+		}
+		
+	}
+
+
 	static class Nono<T extends Bon>{
 		
 	}
